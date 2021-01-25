@@ -23,7 +23,6 @@
   <div id="imagens">
     <img id="image">
   </div>
-  <button onclick="backToTop()">Top</button>
 
   <script>
 
@@ -32,6 +31,14 @@
     var page = 1
     var format = "jpg"
     var selectImg = document.querySelector("#imagens")
+
+    function hideAll() {
+    document.querySelector("body").style.opacity = "0";
+    }
+
+    function showAll() {
+    document.querySelector("body").style.opacity = "1";
+    }
 
     function openImg() {
       changeImage(true)
@@ -147,10 +154,10 @@ function checkKey(e) {
     window.scrollBy(0, -70);
     }
     else if (e.keyCode == '45') {
-    document.querySelector("body").style.opacity = "0";
+    hideAll()
     }
     else if (e.keyCode == '35') {
-    document.querySelector("body").style.opacity = "1";
+    showAll()
     }
 }
 
