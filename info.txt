@@ -1,0 +1,110 @@
+MangaTsu Viewer Info
+━━━━━━━━━━━━━━━━━━━━━━
+• How to use
+Paste the folder link and open.
+
+• Also works with NHentai, 9Hentai, HentaiFox and Pururin 
+
+1° Choose the doujin you want to read
+Ex: https://nhentai.net/g/276730
+
+2° Click on a page
+https://nhentai.net/g/276730/1
+
+3° In the reader, copy the image link
+Ex: https://i.nhentai.net/galleries/1438074/1.jpg
+
+4° Remove the end like this 
+Ex: https://i.nhentai.net/galleries/1438074
+now just paste the link and open 
+
+* The images need to be named
+like this: 1, 2, 3...
+Works with JPG/PNG
+
+━━
+• Buttons
+< or ← or A [ Back page
+> or → or D [ Next page
+Top or Shift [ Back to top
+
+You can change the page size using the slider
+━━⚪━━━━━
+
+━━
+By StartTsu
+Thanks Raizen for help me with JS.
+━━━━━━━━━━━━━━━━━━━━━━
+12/2020
+━━
+
+
+• H-Mangá Websites
+┌─────────────────────┐
+- https://9hentai.ru
+- https://nhentai.net
+- https://www.tsumino.com
+- https://doujins.com
+- https://hitomi.la
+- https://hentaifox.com
+- https://hentai2read.com
+- https://www.hbrowse.com
+- https://e-hentai.org
+- https://pururin.io
+└─────────────────────┘
+
+• MangaTsu Viewer Online
+┌─────────────────────┐
+- https://9hentai.ru
+- https://nhentai.net
+- https://hentaifox.com
+- https://pururin.io
+└─────────────────────┘
+
+
+• Extras CSS
+━━━━━━━━━━━━━━━━━━━━━━
+
+You can put the images in extra folders.
+
+
+// MangaTsu Viewer Wallpaper //
+body {
+background-image: url("./extras/wallpapers/image.png");
+background-size: 100%; 
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+}
+
+━━━━━━━━━━━━━━━━━━━━━━
+
+// MangaTsu Viewer Interactive Waifu //
+body {
+
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */    
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+
+  background-color: #1f1f1f;
+
+  scroll-behavior: smooth;
+
+    background-image: url("./extras/waifus/Idle Waifu.png");
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right bottom;
+
+}
+
+body:hover {
+    background-image: url("./extras/waifus/Shy Waifu.png");
+}
+body:active {
+    background-image: url("./extras/waifus/OpsClick Waifu.png");
+}
+
+━━━━━━━━━━━━━━━━━━━━━━
