@@ -68,9 +68,10 @@ Thanks Raizen for help me with JS.
 You can put the images in extra folders.
 
 
-// MangaTsu Viewer Wallpaper //
+// MangaTsu Viewer Wallpaper | Replace the first body in CSS // 
 body {
 background-image: url("./extras/wallpapers/image.png");
+background-color: #1f1f1f;
 background-size: 100%; 
 background-repeat: no-repeat;
 background-attachment: fixed;
@@ -79,7 +80,7 @@ background-position: center;
 
 ━━━━━━━━━━━━━━━━━━━━━━
 
-// MangaTsu Viewer Interactive Waifu //
+// MangaTsu Viewer Interactive Waifu | Replace the first body in CSS //
 body {
 
   -webkit-user-select: none;  /* Chrome all / Safari all */
