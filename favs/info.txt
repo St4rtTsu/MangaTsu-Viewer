@@ -1,0 +1,6 @@
+You can create and save your favorites lists in this folder!
+
+For some browsers or computers the script-favs.js may take a 
+long time to load or crash depending on the amount of favorites
+you have so if you are going to create several separate lists
+use this folder.

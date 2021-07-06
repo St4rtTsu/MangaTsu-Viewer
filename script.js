@@ -14,7 +14,9 @@
     }
 
     function openImg() {
+    page = 1
       changeImage(true)
+      pageNumber()
     }
 
     function attImgInfo(file) {
@@ -50,11 +52,13 @@
 
       page--
       changeImage(true)
+      pageNumber()
     }
 
     function nextImg() {
       page++
       changeImage(true)
+      pageNumber()
     }
 
 
@@ -86,6 +90,53 @@ function backToTop() {
   document.documentElement.scrollTop = 0;
 }
 
+function showImageConfig() {
+  document.querySelector("#imgSettings").innerHTML = "<input type='text' id='opacityValue' placeholder='Opacity%'><button onclick='setOpacity()'>OK</button> <br> <input type='text' id='filterValue' placeholder='filter'><button onclick='changeFilter()'>OK</button> <br> <input type='text' id='blendValue' placeholder='blend'><button onclick='changeBlend()'>OK</button> <br> <button onclick='originalSize()'>Auto</button> <button onclick='reSize()'>Slider</button> <button onclick='vertReaderEngine()'>⇣</button> <button onclick='closeImgSettings()'>⨉</button>";
+}
+
+function closeImgSettings() {
+  document.querySelector("#imgSettings").innerHTML = "";
+}
+
+function originalSize() {
+  document.querySelector("#image").style.width = "auto";
+  document.querySelector("#imgSettings").innerHTML = "";
+}
+
+function reSize() {
+  document.querySelector("#image").style = "";
+}
+
+function changeFilter() {
+  var filterValue = document.querySelector("#filterValue").value
+  document.querySelector("#image").style.filter = `${filterValue}`;
+}
+
+function changeBlend() {
+  var blendValue = document.querySelector("#blendValue").value
+  document.querySelector("#image").style.mixBlendMode = `${blendValue}`;
+}
+
+function setOpacity() {
+  var opacityValue = document.querySelector("#opacityValue").value
+  document.querySelector("#image").style.opacity = `${opacityValue}`;
+}
+
+function vertReaderEngine() {
+
+if(page > limit) { return; }else {
+   document.querySelector("#imagens").innerHTML += "<img src='" + `${EDI.value}/${page}.${format}` + "'/>";
+   page++
+   vertReaderEngine() 
+}
+}
+
+function pageNumber() {
+document.querySelector("#topPageNumber").innerText = `${page}`;
+document.querySelector("#bottomPageNumber").innerText = `${page}`;
+}
+
+
 document.onkeydown = checkKey;
 
 function checkKey(e) {
@@ -95,11 +146,13 @@ function checkKey(e) {
         return
       page--
       changeImage(true)
+      pageNumber()
       console.log("ESQUERDA")
     }
     else if (e.keyCode == '39') {
       page++
       changeImage(true)
+      pageNumber()
       console.log("DIREITA")
     }
     else if (e.keyCode == '65') {
@@ -107,15 +160,18 @@ function checkKey(e) {
         return
       page--
       changeImage(true)
+      pageNumber()
       console.log("ESQUERDA")
     }
     else if (e.keyCode == '68') {
       page++
       changeImage(true)
+      pageNumber()
       console.log("DIREITA")
     }
     else if (e.keyCode == '13') {
      openImg();
+     pageNumber()
     }
     else if (e.keyCode == '16') {
     backToTop();
@@ -126,10 +182,27 @@ function checkKey(e) {
     else if (e.keyCode == '87') {
     window.scrollBy(0, -70);
     }
-    else if (e.keyCode == '45') {
+    else if (e.keyCode == '69') {
     hideAll()
     }
-    else if (e.keyCode == '35') {
+    else if (e.keyCode == '81') {
     showAll()
     }
+    else if (e.keyCode == '74') {
+    page = document.querySelector("#jumper").value
+    changeImage(true)
+    pageNumber()
+
+    }
+    else if (e.keyCode == '73') {
+    showImageConfig()
+    }
+    else if (e.keyCode == '88') {
+    document.querySelector("#imagens").innerHTML = "";
+    document.querySelector("#topPageNumber").style.opacity = "0%";
+    document.querySelector("#bottomPageNumber").style.opacity = "0%";
+    limit = document.querySelector("#jumper").value
+    page = 1
+    }
+
 }

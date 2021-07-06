@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>MangaTsu Viewer</title>
+ <link rel="icon" href="./red-book.png" type="image/png" sizes="16x16">
+ <link rel="stylesheet" type="text/css" href="./styles-light-red.css"  />
+   </head>
+     <body>
+  
+
+   <button onclick="openImg()">Open</button>
+     <input id="EDI" type="text">
+     <input id="jumper" type="number"> 
+     <input id="ranger" type="range" min="0" max="1290" value="0" />
+
+  <div class="buttons">
+     <div>
+    <button onclick="backImg()">◀</button>
+    <button onclick="nextImg()">▶</button>
+     </div>
+  </div>
+  
+  <span style="display: inline-block; margin-left: 5px;">
+  <span id="info_img"></span></span>
+
+<h1 id="topPageNumber">0</h1>
+   <div id="imagens">
+     <img src="./img-light.png" id="image" width="250px">
+   </div>
+<h1 id="bottomPageNumber">0</h1>
+
+<center>
+     <div>
+    <button onclick="backToTop()">▲</button>
+     </div>
+
+    <button onclick="backImg()">◀</button>
+    <button onclick="nextImg()">▶</button>
+
+     <div id="imgSettings">
+     </div>
+</center>
+
+         <hr>
+
+  <h1 id="fav-list">❤ Favorites -</h1>
+   <br>
+  <div class="things">
+  </div>
+
+  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="script-favs.js"></script>
+  
+ </body>
+</html>
