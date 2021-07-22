@@ -25,8 +25,8 @@ Works with JPG/PNG
 
 ━━━━
 • Buttons
-< or ← or A [ Back page
-> or → or D [ Next page
+< or ← or A [ Next page
+> or → or D [ Back page
 
 Shift [ Back to top
 
@@ -45,9 +45,9 @@ You can change the page size using the slider
 
 1° Copy and paste the link as taught above
 
-2° Enter the number of pages in the second text field and press X to confirm it
+2° Press I and setPageLimit click in OK
 
-3° Press I to open the image configuration and press ⇣
+3° And press ⇣
 
 * The images need to be named
 like this: 1, 2, 3...

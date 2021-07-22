@@ -7,10 +7,12 @@
 
     function hideAll() {
     document.querySelector("body").style.opacity = "0";
+    document.querySelector("body").style.overflowX = "hidden";
     }
 
     function showAll() {
     document.querySelector("body").style.opacity = "1";
+    document.querySelector("body").style.overflowX = "scroll";
     }
 
     function openImg() {
@@ -91,7 +93,7 @@ function backToTop() {
 }
 
 function showImageConfig() {
-  document.querySelector("#imgSettings").innerHTML = "<input type='text' id='opacityValue' placeholder='Opacity%'><button onclick='setOpacity()'>OK</button> <br> <input type='text' id='filterValue' placeholder='filter'><button onclick='changeFilter()'>OK</button> <br> <input type='text' id='blendValue' placeholder='blend'><button onclick='changeBlend()'>OK</button> <br> <button onclick='originalSize()'>Auto</button> <button onclick='reSize()'>Slider</button> <button onclick='vertReaderEngine()'>⇣</button> <button onclick='closeImgSettings()'>⨉</button>";
+  document.querySelector("#imgSettings").innerHTML = "<input type='text' id='opacityValue' placeholder='Opacity%'><button onclick='setOpacity()'>OK</button> <br> <input type='text' id='filterValue' placeholder='filter'><button onclick='changeFilter()'>OK</button> <br> <input type='text' id='blendValue' placeholder='blend'><button onclick='changeBlend()'>OK</button> <br> <input type='text' id='pageLimitValue' placeholder='setPageLimit'><button onclick='setPageLimit()'>OK</button> <br> <button onclick='originalSize()'>Auto</button> <button onclick='reSize()'>Slider</button> <button onclick='horReaderEngine()'>⇠</button> <button onclick='vertReaderEngine()'>⇣</button> <button onclick='closeImgSettings()'>⨉</button>";
 }
 
 function closeImgSettings() {
@@ -120,15 +122,43 @@ function changeBlend() {
 function setOpacity() {
   var opacityValue = document.querySelector("#opacityValue").value
   document.querySelector("#image").style.opacity = `${opacityValue}`;
+
+}
+
+function setPageLimit() {
+limit = document.querySelector("#pageLimitValue").value
+    document.querySelector("#imagens").innerHTML = "";
+    document.querySelector("#topPageNumber").style.opacity = "0%";
+    document.querySelector("#bottomPageNumber").style.opacity = "0%";
+    page = 1
+}
+
+function horReaderEngine() {
+    document.querySelector("#imagens").innerHTML = "";
+    document.querySelector("#topPageNumber").style.opacity = "0%";
+    document.querySelector("#bottomPageNumber").style.opacity = "0%";
+    page = 1
+    document.querySelector("#imagens").innerHTML = "<img src='./img-dark.png' id='image' width='250px'>";
+
 }
 
 function vertReaderEngine() {
 
+document.querySelector("#imgSettings").innerHTML = "<div class='vertConfig'> <input type='text' id='vertImgWidth' placeholder='vertImgWidth'><button onclick='setVertImgWidth()'>OK</button></div>";
+
 if(page > limit) { return; }else {
-   document.querySelector("#imagens").innerHTML += "<img src='" + `${EDI.value}/${page}.${format}` + "'/>";
+   document.querySelector("#imagens").innerHTML += "<img class='vertImg' src='" + `${EDI.value}/${page}.${format}` + "' style='width:200px;'>";
    page++
    vertReaderEngine() 
 }
+}
+
+function setVertImgWidth() {
+  var vertImgWidth = document.querySelector("#vertImgWidth").value
+        let vert = document.querySelectorAll(".vertImg");
+        for (let c = 0; c < vert.length; c++) {
+            vert[c].style.width = `${vertImgWidth}`;
+        }
 }
 
 function pageNumber() {
@@ -141,7 +171,7 @@ document.onkeydown = checkKey;
 
 function checkKey(e) {
 
-    if (e.keyCode == '37') {
+    if (e.keyCode == '39') {
       if (page === 1)
         return
       page--
@@ -149,13 +179,13 @@ function checkKey(e) {
       pageNumber()
       console.log("ESQUERDA")
     }
-    else if (e.keyCode == '39') {
+    else if (e.keyCode == '37') {
       page++
       changeImage(true)
       pageNumber()
       console.log("DIREITA")
     }
-    else if (e.keyCode == '65') {
+    else if (e.keyCode == '68') {
       if (page === 1)
         return
       page--
@@ -163,7 +193,7 @@ function checkKey(e) {
       pageNumber()
       console.log("ESQUERDA")
     }
-    else if (e.keyCode == '68') {
+    else if (e.keyCode == '65') {
       page++
       changeImage(true)
       pageNumber()
@@ -197,12 +227,6 @@ function checkKey(e) {
     else if (e.keyCode == '73') {
     showImageConfig()
     }
-    else if (e.keyCode == '88') {
-    document.querySelector("#imagens").innerHTML = "";
-    document.querySelector("#topPageNumber").style.opacity = "0%";
-    document.querySelector("#bottomPageNumber").style.opacity = "0%";
-    limit = document.querySelector("#jumper").value
-    page = 1
-    }
+
 
 }
