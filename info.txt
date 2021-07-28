@@ -45,9 +45,11 @@ You can change the page size using the slider
 
 1° Copy and paste the link as taught above
 
-2° Press I and setPageLimit click in OK
+2° Press V and setPageLimit click in OK
 
-3° And press ⇣
+3° And press ⇣, You can change the images width ex: "400px" press OK.
+(If you type "auto" or nothing the image will be in the original size).
+
 
 * The images need to be named
 like this: 1, 2, 3...
@@ -96,8 +98,8 @@ background-position: center;
 
 
 ━━━━━━━━━━━━━━━━━━━━━━
-By StartTsu
-Thanks Raizen for help me with JS.
+By StartTsu#5607
+Thanks Raizen and Mytte for help me with JS.
 ━━━━━━━━━━━━━━━━━━━━━━
 12/2020
 ━━━━

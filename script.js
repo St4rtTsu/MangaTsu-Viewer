@@ -93,7 +93,11 @@ function backToTop() {
 }
 
 function showImageConfig() {
-  document.querySelector("#imgSettings").innerHTML = "<input type='text' id='opacityValue' placeholder='Opacity%'><button onclick='setOpacity()'>OK</button> <br> <input type='text' id='filterValue' placeholder='filter'><button onclick='changeFilter()'>OK</button> <br> <input type='text' id='blendValue' placeholder='blend'><button onclick='changeBlend()'>OK</button> <br> <input type='text' id='pageLimitValue' placeholder='setPageLimit'><button onclick='setPageLimit()'>OK</button> <br> <button onclick='originalSize()'>Auto</button> <button onclick='reSize()'>Slider</button> <button onclick='horReaderEngine()'>⇠</button> <button onclick='vertReaderEngine()'>⇣</button> <button onclick='closeImgSettings()'>⨉</button>";
+  document.querySelector("#imgSettings").innerHTML = "<input type='text' id='opacityValue' placeholder='Opacity%'><button onclick='setOpacity()'>OK</button> <br> <input type='text' id='filterValue' placeholder='filter'><button onclick='changeFilter()'>OK</button> <br> <input type='text' id='blendValue' placeholder='blend'><button onclick='changeBlend()'>OK</button> <br> <button onclick='originalSize()'>Auto</button> <button onclick='reSize()'>Slider</button> <button onclick='horReaderEngine()'>⇠</button> <button onclick='closeImgSettings()'>⨉</button>";
+}
+
+function showVertConfig(){ 
+  document.querySelector("#imgSettings").innerHTML = "<div id='vertConfig'> <input type='text' id='pageLimitValue' placeholder='setPageLimit'><button onclick='setPageLimit()'>OK</button> <br> <input type='text' id='vertImgWidth' placeholder='vertImgWidth'> <button onclick='setVertImgWidth()'>OK</button> <br> <button onclick='vertReaderEngine()'>⇣</button> <button onclick='closeImgSettings()'>⨉</button></div>";
 }
 
 function closeImgSettings() {
@@ -102,7 +106,6 @@ function closeImgSettings() {
 
 function originalSize() {
   document.querySelector("#image").style.width = "auto";
-  document.querySelector("#imgSettings").innerHTML = "";
 }
 
 function reSize() {
@@ -126,25 +129,32 @@ function setOpacity() {
 }
 
 function setPageLimit() {
-limit = document.querySelector("#pageLimitValue").value
     document.querySelector("#imagens").innerHTML = "";
-    document.querySelector("#topPageNumber").style.opacity = "0%";
-    document.querySelector("#bottomPageNumber").style.opacity = "0%";
+    document.querySelector("#topPageNumber").style.display = "none";
+    document.querySelector("#bottomPageNumber").style.display = "none";
+    document.querySelector(".buttons").style.display = "none";
+    document.querySelector(".bbuttons").style.display = "none";
+    document.querySelector("#ranger").style.display = "none";
+    document.querySelector("#jumper").style.display = "none";
+limit = document.querySelector("#pageLimitValue").value
     page = 1
 }
 
 function horReaderEngine() {
     document.querySelector("#imagens").innerHTML = "";
-    document.querySelector("#topPageNumber").style.opacity = "0%";
-    document.querySelector("#bottomPageNumber").style.opacity = "0%";
-    page = 1
+    document.querySelector("#topPageNumber").style.display = "";
+    document.querySelector("#bottomPageNumber").style.display = "";
+    document.querySelector(".buttons").style.display = "";
+    document.querySelector(".bbuttons").style.display = "";
+    document.querySelector("#ranger").style.display = "";
+    document.querySelector("#jumper").style.display = "";
     document.querySelector("#imagens").innerHTML = "<img src='./img-dark.png' id='image' width='250px'>";
+    page = 1
+    limit = 0
 
 }
 
 function vertReaderEngine() {
-
-document.querySelector("#imgSettings").innerHTML = "<div class='vertConfig'> <input type='text' id='vertImgWidth' placeholder='vertImgWidth'><button onclick='setVertImgWidth()'>OK</button></div>";
 
 if(page > limit) { return; }else {
    document.querySelector("#imagens").innerHTML += "<img class='vertImg' src='" + `${EDI.value}/${page}.${format}` + "' style='width:200px;'>";
@@ -158,6 +168,7 @@ function setVertImgWidth() {
         let vert = document.querySelectorAll(".vertImg");
         for (let c = 0; c < vert.length; c++) {
             vert[c].style.width = `${vertImgWidth}`;
+
         }
 }
 
@@ -222,10 +233,12 @@ function checkKey(e) {
     page = document.querySelector("#jumper").value
     changeImage(true)
     pageNumber()
-
     }
-    else if (e.keyCode == '73') {
+    else if (e.keyCode == '72') {
     showImageConfig()
+    }
+    else if (e.keyCode == '86') {
+    showVertConfig()
     }
 
 

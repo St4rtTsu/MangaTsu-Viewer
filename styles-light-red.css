@@ -19,6 +19,21 @@ body {
 
 }
 
+body::-webkit-scrollbar {
+    width: auto;
+}
+
+body::-webkit-scrollbar-track {
+background-color: #efefef;
+
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #ed2553;
+  border-radius: 100px;
+
+}
+
 hr {
   margin-top: 10px;
   border: 0;
