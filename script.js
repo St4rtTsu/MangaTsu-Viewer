@@ -12,7 +12,6 @@
 
     function showAll() {
     document.querySelector("body").style.opacity = "1";
-    document.querySelector("body").style.overflowX = "scroll";
     }
 
     function openImg() {
@@ -97,7 +96,7 @@ function showImageConfig() {
 }
 
 function showVertConfig(){ 
-  document.querySelector("#imgSettings").innerHTML = "<div id='vertConfig'> <input type='text' id='pageLimitValue' placeholder='setPageLimit'><button onclick='setPageLimit()'>OK</button> <br> <input type='text' id='vertImgWidth' placeholder='vertImgWidth'> <button onclick='setVertImgWidth()'>OK</button> <br> <button onclick='vertReaderEngine()'>⇣</button> <button onclick='closeImgSettings()'>⨉</button></div>";
+  document.querySelector("#imgSettings").innerHTML = "<div id='vertConfig'> <input type='text' id='pageLimitValue' placeholder='setPageLimit'><button onclick='setPageLimit()'>OK</button> <br> <input type='text' id='vertImgWidth' placeholder='vertImgWidth'> <button onclick='setVertImgWidth()'>OK</button> <br> <input type='text' id='opacityValue' placeholder='Opacity%'><button onclick='setOpacity()'>OK</button> <br> <input type='text' id='filterValue' placeholder='filter'><button onclick='changeFilter()'>OK</button> <br> <input type='text' id='blendValue' placeholder='blend'><button onclick='changeBlend()'>OK</button> <br> <button onclick='vertReaderEngine()'>⇣</button> <button onclick='closeImgSettings()'>⨉</button></div>";
 }
 
 function closeImgSettings() {
@@ -114,17 +113,17 @@ function reSize() {
 
 function changeFilter() {
   var filterValue = document.querySelector("#filterValue").value
-  document.querySelector("#image").style.filter = `${filterValue}`;
+  document.querySelector("#imagens").style.filter = `${filterValue}`;
 }
 
 function changeBlend() {
   var blendValue = document.querySelector("#blendValue").value
-  document.querySelector("#image").style.mixBlendMode = `${blendValue}`;
+  document.querySelector("#imagens").style.mixBlendMode = `${blendValue}`;
 }
 
 function setOpacity() {
   var opacityValue = document.querySelector("#opacityValue").value
-  document.querySelector("#image").style.opacity = `${opacityValue}`;
+  document.querySelector("#imagens").style.opacity = `${opacityValue}`;
 
 }
 
