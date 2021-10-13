@@ -3,58 +3,62 @@
 <head>
 
 <title>MangaTsu Viewer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
  <link rel="icon" href="./red-book.png" type="image/png" sizes="16x16">
  <link rel="stylesheet" type="text/css" href="./styles-light-red.css"  />
    </head>
-     <body>
+  <body>
   
-
-   <button onclick="openImg()">Open</button>
-     <input id="EDI" type="text">
-     <input id="jumper" type="number"> 
-     <input id="ranger" type="range" min="0" max="1290" value="0" />
-
-  <div class="buttons">
-     <div>
-    <button onclick="nextImg()">◀</button>
-    <button onclick="backImg()">▶</button>
-     </div>
-  </div>
-  
-  <span style="display: inline-block; margin-left: 5px;">
-  <span id="info_img"></span></span>
-
-<h1 id="topPageNumber">0</h1>
-   <div id="imagens">
-     <img src="./img-light.png" id="image" width="250px">
-   </div>
-<h1 id="bottomPageNumber">0</h1>
-
 <center>
-     <div>
-    <button onclick="backToTop()">▲</button>
-     </div>
 
-  <div class="bbuttons">
-     <div>
-    <button onclick="nextImg()">◀</button>
-    <button onclick="backImg()">▶</button>
-     </div>
-  </div>
+<div id="header">
+ <button onclick="openImg()">Open</button>
+  <input id="EDI" type="text">
+  <input onclick="jumpToThePage()" id="jumper" type="number" style="display: none;"> 
+  <input id="ranger" type="range" min="0" max="1290" value="0" style="display: none;" />
 
-     <div id="imgSettings">
-     </div>
+<div class="buttons">
+   <div id="upperButtons">
+   </div>
+ </div>
+</div>
+
+  <div id="info_img"></span></div>
+
 </center>
 
-         <hr>
+<h1 id="topPageNumber" style="display: none;">0</h1>
+ <center>
+<div id="imgBox"><div id="imagens" style="display: none;">
+ <div id="imgBtns"><button id="A" class="imgBtns" onclick="nextImg()">A</button><button id="B" class="imgBtns" onclick="backImg()">B</button></div>
+  <img src="./img-light.png" id="image" width="450px" onmouseover="imgBtnsSize()">
+</div></div>
+</center>
+ <h1 id="bottomPageNumber" style="display: none;">0</h1>
+ <center>
+<div class="bbuttons">
+ <div id="lowerButtons">
+ </div>
+</div>
 
-  <h1 id="fav-list">❤ Bookmarks</h1>
-   <br>
-  <div class="things">
-  </div>
+<div id="configSelection">
+</div>
 
-  <script type="text/javascript" src="script.js"></script>
-  <script type="text/javascript" src="script-favs.js"></script>
+<div id="imgSettings">
+</div>
+
+ </center>
+ <hr id="gearHr" style="display: none;">
+<div id="preLoad"></div>
+
+ <div id="bookmarkMenu"><button id="fav-list" onclick="showBookmarks()">❤ Bookmarks</button><button id="closeBookmarks" onclick='closeBookmarks()' style="display: none;">⨉</button></div>
+  <br>
+<div class="things" style="display: none;">
+</div>
+
+ <script type="text/javascript" src="script.js"></script>
+ <script type="text/javascript" src="script-favs.js"></script>
   
  </body>
 </html>
